@@ -1317,3 +1317,54 @@ top .08s linear;
 color:var(--blue);
 
 }
+/* =======================================
+        MOBILE MENU
+======================================= */
+
+.mobile-open{
+
+display:flex !important;
+
+position:absolute;
+
+top:80px;
+
+left:0;
+
+width:100%;
+
+padding:30px;
+
+background:#161B22;
+
+flex-direction:column;
+
+gap:25px;
+
+border-bottom:1px solid #30363D;
+
+}
+
+/* =======================================
+        PROGRESS BAR
+======================================= */
+
+#progressBar{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+height:3px;
+
+width:0;
+
+background:#58A6FF;
+
+z-index:99999;
+
+transition:.1s;
+
+}
