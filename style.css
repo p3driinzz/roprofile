@@ -1260,3 +1260,60 @@ footer div{
     }
 
 }
+/* ==========================================
+        PARTICLES CANVAS
+========================================== */
+
+#particles-canvas{
+
+position:absolute;
+
+inset:0;
+
+width:100%;
+
+height:100%;
+
+pointer-events:none;
+
+}
+
+/* ==========================================
+        CURSOR GLOW
+========================================== */
+
+#cursorGlow{
+
+position:fixed;
+
+width:350px;
+
+height:350px;
+
+border-radius:50%;
+
+pointer-events:none;
+
+background:radial-gradient(circle,
+rgba(88,166,255,.12),
+transparent 70%);
+
+transform:translate(-50%,-50%);
+
+z-index:-1;
+
+transition:
+left .08s linear,
+top .08s linear;
+
+}
+
+/* ==========================================
+        ACTIVE NAV LINK
+========================================== */
+
+.navbar ul a.active{
+
+color:var(--blue);
+
+}
