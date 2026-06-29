@@ -1,158 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RoProfile | Roblox Profile Viewer</title>
-
-<meta name="description" content="View Roblox profiles directly from Discord with RoProfile.">
-
-<link rel="icon" href="assets/favicon.ico">
+<title>RoProfile</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
 
-<link rel="stylesheet" href="style.css">
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,Arial,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0d0d0d;
+    color:#f1f1f1;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:#111;
+    border-bottom:1px solid #242424;
+
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+.logo{
+
+    font-size:26px;
+    font-weight:bold;
+
+}
+
+.logo span{
+
+    color:#9b9b9b;
+
+}
+
+nav a{
+
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+
+    transition:.2s;
+
+}
+
+nav a:hover{
+
+    color:#bdbdbd;
+
+}
+
+/* HERO */
+
+.hero{
+
+    padding:100px 20px;
+    text-align:center;
+
+}
+
+.hero h1{
+
+    font-size:65px;
+    margin-bottom:20px;
+
+}
+
+.hero p{
+
+    color:#b5b5b5;
+    font-size:19px;
+    max-width:700px;
+    margin:auto;
+    line-height:1.7;
+
+}
+
+.buttons{
+
+    margin-top:45px;
+
+}
+
+.btn{
+
+    display:inline-block;
+
+    padding:15px 28px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    margin:10px;
+
+    transition:.25s;
+
+}
+
+.primary{
+
+    background:#2b2b2b;
+    color:white;
+
+}
+
+.primary:hover{
+
+    background:#3b3b3b;
+
+}
+
+.secondary{
+
+    border:1px solid #4b4b4b;
+    color:white;
+
+}
+
+.secondary:hover{
+
+    background:#1b1b1b;
+
+}
+
+/* FEATURES */
+
+.features{
+
+    width:90%;
+    max-width:1200px;
+    margin:100px auto;
+
+}
+
+.features h2{
+
+    text-align:center;
+    margin-bottom:60px;
+    font-size:36px;
+
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+}
+
+.card{
+
+    background:#151515;
+
+    border:1px solid #242424;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    transition:.25s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#4b4b4b;
+
+}
+
+.card h3{
+
+    margin-bottom:15px;
+
+}
+
+.card p{
+
+    color:#aaaaaa;
+    line-height:1.7;
+
+}
+
+/* ABOUT */
+
+.about{
+
+    width:90%;
+    max-width:900px;
+
+    margin:100px auto;
+
+    text-align:center;
+
+}
+
+.about h2{
+
+    margin-bottom:25px;
+    font-size:36px;
+
+}
+
+.about p{
+
+    color:#bcbcbc;
+    line-height:1.9;
+
+}
+
+/* FOOTER */
+
+footer{
+
+    margin-top:100px;
+
+    padding:40px;
+
+    text-align:center;
+
+    border-top:1px solid #242424;
+
+    color:#888;
+
+}
+
+.footer-links{
+
+    margin-top:20px;
+
+}
+
+.footer-links a{
+
+    color:#bdbdbd;
+    margin:0 15px;
+    text-decoration:none;
+
+}
+
+.footer-links a:hover{
+
+    color:white;
+
+}
+
+</style>
 
 </head>
-
 <body>
 
-<div id="particles"></div>
-
-<header>
-
-<nav class="navbar">
+<nav>
 
 <div class="logo">
-
 Ro<span>Profile</span>
-
 </div>
 
-<ul>
+<div>
 
-<li><a href="#home">Home</a></li>
+<a href="#features">Features</a>
 
-<li><a href="#features">Features</a></li>
+<a href="#about">About</a>
 
-<li><a href="#faq">FAQ</a></li>
+<a href="terms.html">Terms</a>
 
-<li><a href="terms.html">Terms</a></li>
+<a href="privacy.html">Privacy</a>
 
-<li><a href="privacy.html">Privacy</a></li>
-
-</ul>
-
-<a class="invite-btn" href="https://discord.com/oauth2/authorize?client_id=1519099198434181231&permissions=8&integration_type=0&scope=bot+applications.commands">
-Add Bot
-</a>
+</div>
 
 </nav>
 
-</header>
+<section class="hero">
 
-<section class="hero" id="home">
-
-<div class="hero-left">
-
-<h1>
-
-The easiest way to
-<span>view Roblox profiles</span>
-inside Discord.
-
-</h1>
+<h1>RoProfile</h1>
 
 <p>
 
-RoProfile lets you search Roblox users, view avatars,
-account information and much more in seconds.
+A powerful Discord bot designed to quickly display public Roblox profile information.
+Simple, fast, and easy to use with modern slash commands.
 
 </p>
 
-<div class="hero-buttons">
+<div class="buttons">
 
-<a href="#" class="button-primary">
-
+<a class="btn primary" href="SEU_LINK_DO_BOT">
 Add to Discord
-
 </a>
 
-<a href="https://github.com/p3driinzz/roprofile" class="button-secondary">
-
+<a class="btn secondary" href="https://github.com/p3driinzz/roprofile">
 GitHub
-
 </a>
 
 </div>
 
-</div>
-
-<div class="hero-right">
-
-<img src="assets/banner.png">
-
-</div>
-
 </section>
 
-<section class="stats">
+<section class="features" id="features">
 
-<div>
+<h2>Features</h2>
 
-<h2>99.9%</h2>
-
-<p>Uptime</p>
-
-</div>
-
-<div>
-
-<h2>Fast</h2>
-
-<p>Response Time</p>
-
-</div>
-
-<div>
-
-<h2>100%</h2>
-
-<p>Free</p>
-
-</div>
-
-</section>
-
-<section id="features" class="features">
-
-<h2>
-
-Powerful Features
-
-</h2>
-
-<div class="cards">
+<div class="grid">
 
 <div class="card">
 
-<div class="emoji">
-
-👤
-
-</div>
-
-<h3>User Lookup</h3>
+<h3>👤 User Profiles</h3>
 
 <p>
 
-Search any Roblox player instantly.
+Search any Roblox player and instantly view their public profile information.
 
 </p>
 
@@ -160,17 +343,11 @@ Search any Roblox player instantly.
 
 <div class="card">
 
-<div class="emoji">
-
-🖼️
-
-</div>
-
-<h3>Avatar Preview</h3>
+<h3>⚡ Fast Response</h3>
 
 <p>
 
-View Roblox avatars in high quality.
+Optimized to return profile information in just a few seconds.
 
 </p>
 
@@ -178,17 +355,11 @@ View Roblox avatars in high quality.
 
 <div class="card">
 
-<div class="emoji">
-
-⚡
-
-</div>
-
-<h3>Fast</h3>
+<h3>🛡️ Secure</h3>
 
 <p>
 
-Optimized API responses.
+RoProfile only displays publicly available Roblox information and does not store user data.
 
 </p>
 
@@ -196,17 +367,11 @@ Optimized API responses.
 
 <div class="card">
 
-<div class="emoji">
-
-🛡️
-
-</div>
-
-<h3>Secure</h3>
+<h3>🤖 Slash Commands</h3>
 
 <p>
 
-No user data is stored.
+Modern Discord slash command support for an intuitive experience.
 
 </p>
 
@@ -216,206 +381,34 @@ No user data is stored.
 
 </section>
 
-<section class="preview">
+<section class="about" id="about">
 
-<h2>Discord Preview</h2>
-
-<div class="discord-window">
-
-<div class="discord-top">
-
-<div class="dot red"></div>
-
-<div class="dot yellow"></div>
-
-<div class="dot green"></div>
-
-<span># commands</span>
-
-</div>
-
-<div class="discord-chat">
-
-<div class="message user">
-
-<img src="assets/logo.png">
-
-<div>
-
-<strong>Pedrinz</strong>
-
-<p>/user Builderman</p>
-
-</div>
-
-</div>
-
-<div class="message bot">
-
-<img src="assets/logo.png">
-
-<div class="embed">
-
-<div class="embed-bar"></div>
-
-<div class="embed-content">
-
-<div class="embed-header">
-
-<img src="assets/logo.png">
-
-<strong>RoProfile</strong>
-
-</div>
-
-<h3>Builderman</h3>
+<h2>About RoProfile</h2>
 
 <p>
 
-Official Roblox account.
+RoProfile is an independent Discord bot developed by <strong>Ryix</strong>.
+Its goal is to provide a clean and reliable way to view Roblox profile information directly from Discord.
 
 </p>
-
-<div class="embed-grid">
-
-<div>
-
-<span>Followers</span>
-
-<strong>1,500,000+</strong>
-
-</div>
-
-<div>
-
-<span>Following</span>
-
-<strong>0</strong>
-
-</div>
-
-<div>
-
-<span>Created</span>
-
-<strong>2006</strong>
-
-</div>
-
-<div>
-
-<span>Status</span>
-
-<strong>Online</strong>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="faq" class="faq">
-
-<h2>
-
-Frequently Asked Questions
-
-</h2>
-
-<div class="faq-box">
-
-<h3>
-
-Is RoProfile free?
-
-</h3>
-
-<p>
-
-Yes. Completely free.
-
-</p>
-
-</div>
-
-<div class="faq-box">
-
-<h3>
-
-Does it store my data?
-
-</h3>
-
-<p>
-
-No.
-
-</p>
-
-</div>
-
-<div class="faq-box">
-
-<h3>
-
-Who created RoProfile?
-
-</h3>
-
-<p>
-
-Ryix.
-
-</p>
-
-</div>
 
 </section>
 
 <footer>
 
-<div>
+© 2026 RoProfile • Developed by Ryix
 
-© 2026 RoProfile
+<div class="footer-links">
 
-</div>
+<a href="terms.html">Terms of Service</a>
 
-<div>
+<a href="privacy.html">Privacy Policy</a>
 
-<a href="terms.html">
-
-Terms
-
-</a>
-
-<a href="privacy.html">
-
-Privacy
-
-</a>
-
-<a href="https://github.com/p3driinzz/roprofile">
-
-GitHub
-
-</a>
+<a href="https://github.com/p3driinzz/roprofile">GitHub</a>
 
 </div>
 
 </footer>
 
-<script src="script.js"></script>
-
 </body>
-
 </html>
