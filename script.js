@@ -206,3 +206,248 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+/* ===========================================================
+                PARTICLES BACKGROUND
+=========================================================== */
+
+const canvas = document.createElement("canvas");
+
+canvas.id = "particles-canvas";
+
+document.getElementById("particles").appendChild(canvas);
+
+const ctx = canvas.getContext("2d");
+
+let particles = [];
+
+function resizeCanvas(){
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+}
+
+window.addEventListener("resize", resizeCanvas);
+
+resizeCanvas();
+
+class Particle{
+
+    constructor(){
+
+        this.reset();
+
+        this.y = Math.random()*canvas.height;
+
+    }
+
+    reset(){
+
+        this.x = Math.random()*canvas.width;
+
+        this.y = canvas.height + Math.random()*100;
+
+        this.size = Math.random()*2+1;
+
+        this.speed = Math.random()*0.4+0.2;
+
+        this.opacity = Math.random()*0.5+0.15;
+
+    }
+
+    update(){
+
+        this.y -= this.speed;
+
+        if(this.y < -20){
+
+            this.reset();
+
+        }
+
+    }
+
+    draw(){
+
+        ctx.beginPath();
+
+        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+
+        ctx.fillStyle=`rgba(88,166,255,${this.opacity})`;
+
+        ctx.fill();
+
+    }
+
+}
+
+for(let i=0;i<90;i++){
+
+    particles.push(new Particle());
+
+}
+
+function animateParticles(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    particles.forEach(p=>{
+
+        p.update();
+
+        p.draw();
+
+    });
+
+    requestAnimationFrame(animateParticles);
+
+}
+
+animateParticles();
+
+/* ===========================================================
+                HERO PARALLAX
+=========================================================== */
+
+const heroImage = document.querySelector(".hero-right img");
+
+document.addEventListener("mousemove",(e)=>{
+
+    if(!heroImage) return;
+
+    const x=(window.innerWidth/2-e.clientX)/45;
+
+    const y=(window.innerHeight/2-e.clientY)/45;
+
+    heroImage.style.transform=
+        `translate(${x}px,${y}px)`;
+
+});
+
+/* ===========================================================
+                COUNTER ANIMATION
+=========================================================== */
+
+const counters=document.querySelectorAll(".stats h2");
+
+const counterObserver=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+const counter=entry.target;
+
+const text=counter.innerText;
+
+if(text.includes("%")){
+
+animateCounter(counter,99.9,"%",1);
+
+}else if(text==="100%"){
+
+animateCounter(counter,100,"%",0);
+
+}
+
+counterObserver.unobserve(counter);
+
+}
+
+});
+
+});
+
+counters.forEach(c=>counterObserver.observe(c));
+
+function animateCounter(element,target,suffix,decimal){
+
+let current=0;
+
+const step=target/90;
+
+function update(){
+
+current+=step;
+
+if(current>=target){
+
+current=target;
+
+}
+
+element.innerHTML=
+
+decimal?
+
+current.toFixed(1)+suffix:
+
+Math.floor(current)+suffix;
+
+if(current<target){
+
+requestAnimationFrame(update);
+
+}
+
+}
+
+update();
+
+}
+
+/* ===========================================================
+            CURSOR LIGHT EFFECT
+=========================================================== */
+
+const glow=document.createElement("div");
+
+glow.id="cursorGlow";
+
+document.body.appendChild(glow);
+
+document.addEventListener("mousemove",(e)=>{
+
+glow.style.left=e.clientX+"px";
+
+glow.style.top=e.clientY+"px";
+
+});
+
+/* ===========================================================
+            NAVBAR ACTIVE LINK
+=========================================================== */
+
+const sections=document.querySelectorAll("section");
+
+const navLinks=document.querySelectorAll(".navbar ul a");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach(section=>{
+
+const top=section.offsetTop-120;
+
+if(pageYOffset>=top){
+
+current=section.getAttribute("id");
+
+}
+
+});
+
+navLinks.forEach(link=>{
+
+link.classList.remove("active");
+
+if(link.getAttribute("href")==="#"+current){
+
+link.classList.add("active");
+
+}
+
+});
+
+});
