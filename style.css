@@ -1,0 +1,1224 @@
+/* ===========================================================
+   RoProfile Website
+   Developed by Ryix
+   =========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* =======================
+        RESET
+======================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:"Inter",sans-serif;
+
+    background:#0D1117;
+
+    color:#F0F6FC;
+
+    overflow-x:hidden;
+
+}
+
+/* =======================
+      COLORS
+======================= */
+
+:root{
+
+    --background:#0D1117;
+
+    --background-light:#161B22;
+
+    --background-card:#1F2630;
+
+    --border:#30363D;
+
+    --text:#F0F6FC;
+
+    --text-secondary:#8B949E;
+
+    --blue:#58A6FF;
+
+    --blue-hover:#4094F7;
+
+    --shadow:rgba(0,0,0,.45);
+
+}
+
+/* =======================
+        SCROLLBAR
+======================= */
+
+::-webkit-scrollbar{
+
+    width:12px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#11161D;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#30363D;
+
+    border-radius:999px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#454D58;
+
+}
+
+/* =======================
+        LINKS
+======================= */
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+/* =======================
+        PARTICLES
+======================= */
+
+#particles{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-2;
+
+    background:
+
+    radial-gradient(circle at top,#202938 0%,#0D1117 55%);
+
+}
+
+/* =======================
+      NAVBAR
+======================= */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+
+    width:100%;
+
+    height:80px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 9%;
+
+    background:rgba(13,17,23,.70);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+    z-index:999;
+
+}
+
+.logo{
+
+    font-size:32px;
+
+    font-weight:800;
+
+    color:white;
+
+    letter-spacing:-1px;
+
+}
+
+.logo span{
+
+    color:var(--blue);
+
+}
+
+.navbar ul{
+
+    display:flex;
+
+    gap:40px;
+
+    list-style:none;
+
+}
+
+.navbar li{
+
+    position:relative;
+
+}
+
+.navbar li::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--blue);
+
+    transition:.35s;
+
+}
+
+.navbar li:hover::after{
+
+    width:100%;
+
+}
+
+.navbar a{
+
+    color:#F0F6FC;
+
+    font-weight:500;
+
+    transition:.25s;
+
+}
+
+.navbar a:hover{
+
+    color:var(--blue);
+
+}
+
+/* =======================
+      INVITE BUTTON
+======================= */
+
+.invite-btn{
+
+    background:var(--blue);
+
+    color:white;
+
+    padding:14px 26px;
+
+    border-radius:12px;
+
+    font-weight:700;
+
+    transition:.30s;
+
+    box-shadow:0 10px 25px rgba(88,166,255,.25);
+
+}
+
+.invite-btn:hover{
+
+    background:var(--blue-hover);
+
+    transform:translateY(-2px);
+
+}
+
+/* =======================
+      HERO
+======================= */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 9%;
+
+    gap:60px;
+
+}
+
+.hero-left{
+
+    flex:1;
+
+}
+
+.hero-left h1{
+
+    font-size:72px;
+
+    line-height:1.05;
+
+    margin-bottom:25px;
+
+    font-weight:900;
+
+}
+
+.hero-left span{
+
+    color:var(--blue);
+
+}
+
+.hero-left p{
+
+    max-width:620px;
+
+    color:var(--text-secondary);
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    margin-bottom:40px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.button-primary{
+
+    background:var(--blue);
+
+    color:white;
+
+    padding:17px 32px;
+
+    border-radius:14px;
+
+    font-weight:700;
+
+    transition:.30s;
+
+}
+
+.button-primary:hover{
+
+    background:var(--blue-hover);
+
+    transform:translateY(-3px);
+
+}
+
+.button-secondary{
+
+    border:1px solid var(--border);
+
+    padding:17px 32px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    transition:.30s;
+
+}
+
+.button-secondary:hover{
+
+    background:var(--background-light);
+
+}
+
+.hero-right{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.hero-right img{
+
+    width:100%;
+
+    max-width:650px;
+
+    border-radius:22px;
+
+    box-shadow:0 30px 80px rgba(0,0,0,.55);
+
+    animation:float 6s ease-in-out infinite;
+
+}
+
+/* =======================
+      FLOAT EFFECT
+======================= */
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-18px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+/* ===========================================================
+                    STATS SECTION
+=========================================================== */
+
+.stats{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:40px;
+
+    flex-wrap:wrap;
+
+    padding:80px 9%;
+
+    background:linear-gradient(
+        to bottom,
+        transparent,
+        rgba(255,255,255,.015)
+    );
+
+}
+
+.stats div{
+
+    width:250px;
+
+    padding:35px;
+
+    text-align:center;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.05);
+
+    transition:.35s;
+
+    backdrop-filter:blur(10px);
+
+}
+
+.stats div:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--blue);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+}
+
+.stats h2{
+
+    font-size:42px;
+
+    color:var(--blue);
+
+    margin-bottom:10px;
+
+}
+
+.stats p{
+
+    color:var(--text-secondary);
+
+    font-size:16px;
+
+}
+
+/* ===========================================================
+                    FEATURES
+=========================================================== */
+
+.features{
+
+    padding:120px 9%;
+
+}
+
+.features h2{
+
+    text-align:center;
+
+    font-size:48px;
+
+    margin-bottom:70px;
+
+}
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+
+    gap:30px;
+
+}
+
+.card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.04),
+        rgba(255,255,255,.02)
+    );
+
+    border:1px solid rgba(255,255,255,.06);
+
+    border-radius:22px;
+
+    padding:45px 35px;
+
+    transition:.35s;
+
+    backdrop-filter:blur(15px);
+
+}
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
+    background:radial-gradient(
+        circle,
+        rgba(88,166,255,.12),
+        transparent 70%
+    );
+
+    top:-180px;
+
+    right:-150px;
+
+    transition:.45s;
+
+}
+
+.card:hover::before{
+
+    transform:scale(1.3);
+
+}
+
+.card:hover{
+
+    transform:translateY(-12px);
+
+    border-color:rgba(88,166,255,.5);
+
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
+
+}
+
+.emoji{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:34px;
+
+    margin-bottom:30px;
+
+    background:rgba(88,166,255,.08);
+
+}
+
+.card h3{
+
+    font-size:26px;
+
+    margin-bottom:15px;
+
+}
+
+.card p{
+
+    line-height:1.8;
+
+    color:var(--text-secondary);
+
+}
+
+/* ===========================================================
+                    PREVIEW
+=========================================================== */
+
+.preview{
+
+    padding:120px 9%;
+
+    text-align:center;
+
+}
+
+.preview h2{
+
+    font-size:46px;
+
+    margin-bottom:60px;
+
+}
+
+.preview img{
+
+    width:100%;
+
+    max-width:1100px;
+
+    border-radius:24px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+
+        0 30px 70px rgba(0,0,0,.45);
+
+    transition:.35s;
+
+}
+
+.preview img:hover{
+
+    transform:scale(1.015);
+
+}
+
+/* ===========================================================
+                GLOW EFFECT
+=========================================================== */
+
+.card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:22px;
+
+    padding:1px;
+
+    background:linear-gradient(
+        135deg,
+        transparent,
+        rgba(88,166,255,.45),
+        transparent
+    );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+
+            mask-composite:exclude;
+
+    pointer-events:none;
+
+    opacity:0;
+
+    transition:.4s;
+
+}
+
+.card:hover::after{
+
+    opacity:1;
+
+}
+
+/* ===========================================================
+                SMALL ANIMATIONS
+=========================================================== */
+
+.card,
+.stats div,
+.preview img{
+
+    animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================================================
+                        FAQ
+=========================================================== */
+
+.faq{
+
+    padding:120px 9%;
+
+}
+
+.faq h2{
+
+    text-align:center;
+
+    font-size:48px;
+
+    margin-bottom:70px;
+
+}
+
+.faq-box{
+
+    max-width:950px;
+
+    margin:25px auto;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+}
+
+.faq-box:hover{
+
+    border-color:rgba(88,166,255,.4);
+
+    transform:translateY(-3px);
+
+}
+
+.faq-box h3{
+
+    padding:28px 35px;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    position:relative;
+
+}
+
+.faq-box h3::after{
+
+    content:"+";
+
+    position:absolute;
+
+    right:35px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:26px;
+
+    color:var(--blue);
+
+    transition:.3s;
+
+}
+
+.faq-box.active h3::after{
+
+    transform:translateY(-50%) rotate(45deg);
+
+}
+
+.faq-box p{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:.45s;
+
+    color:var(--text-secondary);
+
+    line-height:1.8;
+
+    padding:0 35px;
+
+}
+
+.faq-box.active p{
+
+    max-height:200px;
+
+    padding:0 35px 28px;
+
+}
+
+/* ===========================================================
+                        FOOTER
+=========================================================== */
+
+footer{
+
+    margin-top:120px;
+
+    padding:60px 9%;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+    color:var(--text-secondary);
+
+}
+
+footer div{
+
+    display:flex;
+
+    gap:25px;
+
+    align-items:center;
+
+}
+
+footer a{
+
+    transition:.3s;
+
+}
+
+footer a:hover{
+
+    color:var(--blue);
+
+}
+
+/* ===========================================================
+                    BACK TO TOP
+=========================================================== */
+
+#topButton{
+
+    position:fixed;
+
+    right:35px;
+
+    bottom:35px;
+
+    width:58px;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--blue);
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.35s;
+
+    box-shadow:0 15px 35px rgba(88,166,255,.35);
+
+    z-index:999;
+
+}
+
+#topButton.show{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+}
+
+#topButton:hover{
+
+    transform:translateY(-5px);
+
+}
+
+/* ===========================================================
+                        LOADER
+=========================================================== */
+
+.loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#0D1117;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+    transition:.6s;
+
+}
+
+.loader.hidden{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+.loader-circle{
+
+    width:80px;
+
+    height:80px;
+
+    border-radius:50%;
+
+    border:6px solid #222;
+
+    border-top:6px solid var(--blue);
+
+    animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ===========================================================
+                    SCROLL ANIMATION
+=========================================================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(80px);
+
+    transition:1s;
+
+}
+
+.reveal.show{
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+/* ===========================================================
+                    MOBILE MENU
+=========================================================== */
+
+.mobile-toggle{
+
+    display:none;
+
+    flex-direction:column;
+
+    gap:6px;
+
+    cursor:pointer;
+
+}
+
+.mobile-toggle span{
+
+    width:28px;
+
+    height:3px;
+
+    border-radius:999px;
+
+    background:white;
+
+}
+
+/* ===========================================================
+                    RESPONSIVE
+=========================================================== */
+
+@media(max-width:1200px){
+
+.hero{
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding-top:170px;
+
+}
+
+.hero-left{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.hero-left h1{
+
+    font-size:58px;
+
+}
+
+.hero-right{
+
+    margin-top:60px;
+
+}
+
+}
+
+@media(max-width:900px){
+
+.navbar{
+
+    padding:0 30px;
+
+}
+
+.navbar ul{
+
+    display:none;
+
+}
+
+.mobile-toggle{
+
+    display:flex;
+
+}
+
+.hero h1{
+
+    font-size:46px;
+
+}
+
+.features h2,
+.preview h2,
+.faq h2{
+
+    font-size:38px;
+
+}
+
+.cards{
+
+    grid-template-columns:1fr;
+
+}
+
+.stats{
+
+    flex-direction:column;
+
+}
+
+.stats div{
+
+    width:100%;
+
+    max-width:420px;
+
+}
+
+footer{
+
+    justify-content:center;
+
+    text-align:center;
+
+}
+
+footer div{
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.hero{
+
+    padding-left:25px;
+
+    padding-right:25px;
+
+}
+
+.hero h1{
+
+    font-size:38px;
+
+}
+
+.hero p{
+
+    font-size:17px;
+
+}
+
+.button-primary,
+.button-secondary{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+.preview img{
+
+    border-radius:15px;
+
+}
+
+}
