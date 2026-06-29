@@ -451,3 +451,215 @@ link.classList.add("active");
 });
 
 });
+/* ===========================================================
+                MOBILE MENU
+=========================================================== */
+
+const navbar = document.querySelector(".navbar");
+
+const mobileToggle = document.createElement("div");
+
+mobileToggle.className = "mobile-toggle";
+
+mobileToggle.innerHTML = `
+<span></span>
+<span></span>
+<span></span>
+`;
+
+navbar.appendChild(mobileToggle);
+
+const mobileMenu = document.querySelector(".navbar ul");
+
+mobileToggle.addEventListener("click",()=>{
+
+    mobileMenu.classList.toggle("mobile-open");
+
+});
+
+/* ===========================================================
+                CARD 3D EFFECT
+=========================================================== */
+
+document.querySelectorAll(".card").forEach(card=>{
+
+card.addEventListener("mousemove",(e)=>{
+
+const rect=card.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+
+const y=e.clientY-rect.top;
+
+const rotateY=((x/rect.width)-0.5)*18;
+
+const rotateX=((y/rect.height)-0.5)*-18;
+
+card.style.transform=
+
+`perspective(900px)
+rotateX(${rotateX}deg)
+rotateY(${rotateY}deg)
+translateY(-8px)`;
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="";
+
+});
+
+});
+
+/* ===========================================================
+                IMAGE LAZY FADE
+=========================================================== */
+
+document.querySelectorAll("img").forEach(img=>{
+
+img.style.opacity="0";
+
+img.style.transition=".8s";
+
+img.onload=()=>{
+
+img.style.opacity="1";
+
+};
+
+});
+
+/* ===========================================================
+                BUTTON GLOW
+=========================================================== */
+
+document.querySelectorAll(
+
+".button-primary,.button-secondary,.invite-btn"
+
+).forEach(button=>{
+
+button.addEventListener("mousemove",(e)=>{
+
+const rect=button.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+
+const y=e.clientY-rect.top;
+
+button.style.background=
+
+`radial-gradient(circle at ${x}px ${y}px,
+rgba(255,255,255,.18),
+transparent 65%),
+`;
+
+});
+
+button.addEventListener("mouseleave",()=>{
+
+button.style.background="";
+
+});
+
+});
+
+/* ===========================================================
+                SCROLL PROGRESS BAR
+=========================================================== */
+
+const progress=document.createElement("div");
+
+progress.id="progressBar";
+
+document.body.appendChild(progress);
+
+window.addEventListener("scroll",()=>{
+
+const total=
+
+document.documentElement.scrollHeight-
+window.innerHeight;
+
+const width=(window.scrollY/total)*100;
+
+progress.style.width=width+"%";
+
+});
+
+/* ===========================================================
+                HERO PARALLAX TEXT
+=========================================================== */
+
+const hero=document.querySelector(".hero-left");
+
+document.addEventListener("mousemove",(e)=>{
+
+const x=(window.innerWidth/2-e.clientX)/120;
+
+const y=(window.innerHeight/2-e.clientY)/120;
+
+hero.style.transform=
+
+`translate(${x}px,${y}px)`;
+
+});
+
+/* ===========================================================
+                EASTER EGG
+=========================================================== */
+
+let sequence=[];
+
+const code=[
+
+"KeyR",
+"KeyO",
+"KeyP"
+
+];
+
+document.addEventListener("keydown",(e)=>{
+
+sequence.push(e.code);
+
+sequence=sequence.slice(-3);
+
+if(sequence.join()==code.join()){
+
+console.log(
+
+"%cRoProfile",
+
+"color:#58A6FF;font-size:40px;font-weight:bold;"
+
+);
+
+console.log(
+
+"%cDeveloped by Ryix",
+
+"color:white;font-size:18px;"
+
+);
+
+}
+
+});
+
+/* ===========================================================
+                PERFORMANCE
+=========================================================== */
+
+window.addEventListener("blur",()=>{
+
+cancelAnimationFrame(animateParticles);
+
+});
+
+window.addEventListener("focus",()=>{
+
+animateParticles();
+
+});
